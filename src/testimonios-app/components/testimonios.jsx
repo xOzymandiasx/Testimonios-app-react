@@ -7,11 +7,11 @@ const Testimonios = ({personas}) => {
       <img
         className="imagen-testimonio"
         src={require(`../img/testimonio-${personas.imagen}.png`)}
-        alt="Foto de Emma"
+        alt={`Foto de ${personas.imagen}`}
       />
 			<div className="contenedor-texto-testimonio">
-				<p className="nombre-testimonio">{personas.nombre} en {personas.pais}.</p>
-				<p className="cargo-testimonio">{personas.cargo} en {personas.empresa}</p>
+				<p className="nombre-testimonio"><strong>{personas.nombre}</strong> en {personas.pais}.</p>
+				<p className="cargo-testimonio">{personas.cargo} en <strong>{personas.empresa}</strong> </p>
 				<p className="texto-testimonio">{personas.testimonio}</p>
 			</div>
     </div>
