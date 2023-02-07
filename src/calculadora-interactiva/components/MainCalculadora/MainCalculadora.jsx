@@ -1,9 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import freecodecampLogo from "../../img/freecodecamp-logo.png";
 import "../../styles/mainCalculadora.css";
 import Boton from "../boton";
+import ClearButton from "../ClearButton";
+import Pantalla from "../Pantalla";
+import { evaluate } from "mathjs"  
 
 const MainCalculadora = () => {
+  const [input, setInput] = useState("");
+
+  const agregarInput = (val) => {
+    setInput(input + val);
+  };
+
+  const resultado = ()=> {
+    input === "" ? alert("Por favor ingresa valores") : setInput(evaluate(input));
+  };
+
   return (
     <div className="App">
       <div className="freecodecamp-logo-contenedor">
@@ -14,31 +27,34 @@ const MainCalculadora = () => {
         />
       </div>
       <div className="contenedor-calculadora">
+      <Pantalla input={input}/>
         <div className="fila">
-          <Boton>1</Boton>
-          <Boton>2</Boton>
-          <Boton>3</Boton>
-          <Boton>+</Boton>
+          <Boton handleClick={agregarInput}>1</Boton>
+          <Boton handleClick={agregarInput}>2</Boton>
+          <Boton handleClick={agregarInput}>3</Boton>
+          <Boton handleClick={agregarInput}>+</Boton>
         </div>
         <div className="fila">
-          <Boton>4</Boton>
-          <Boton>5</Boton>
-          <Boton>6</Boton>
-          <Boton>-</Boton>
+          <Boton handleClick={agregarInput}>4</Boton>
+          <Boton handleClick={agregarInput}>5</Boton>
+          <Boton handleClick={agregarInput}>6</Boton>
+          <Boton handleClick={agregarInput}>-</Boton>
         </div>
         <div className="fila">
-          <Boton>7</Boton>
-          <Boton>8</Boton>
-          <Boton>9</Boton>
-          <Boton>*</Boton>
+          <Boton handleClick={agregarInput}>7</Boton>
+          <Boton handleClick={agregarInput}>8</Boton>
+          <Boton handleClick={agregarInput}>9</Boton>
+          <Boton handleClick={agregarInput}>*</Boton>
         </div>
         <div className="fila">
-          <Boton>=</Boton>
-          <Boton>0</Boton>
-          <Boton>.</Boton>
-          <Boton>/</Boton>
+          <Boton handleClick={resultado}>=</Boton>
+          <Boton handleClick={agregarInput}>0</Boton>
+          <Boton handleClick={agregarInput}>.</Boton>
+          <Boton handleClick={agregarInput}>/</Boton>
         </div>
-        <div className="fila"></div>
+        <div className="fila">
+          <ClearButton handleClear={()=>setInput("")}>Clear</ClearButton>
+        </div>
       </div>
     </div>
   );

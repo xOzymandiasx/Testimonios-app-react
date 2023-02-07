@@ -2,14 +2,16 @@ import React from "react";
 import "../styles/boton.css";
 
 const Boton = (props) => {
-
-	const esOperador = (valor) => {
-		return isNaN(valor) && (valor !== ".") && (valor !== "=");
-	};
+  const esOperador = (valor) => {
+    return isNaN(valor) && valor !== "." && valor !== "=";
+  };
 
   return (
     <div
-      className={`boton-contenedor ${esOperador(props.children) ? "operador" : ""}`.trimEnd()}
+      className={`boton-contenedor ${
+        esOperador(props.children) ? "operador" : ""
+      }`.trimEnd()}
+      onClick={()=> props.handleClick(props.children)}
     >
       {props.children}
     </div>
