@@ -1,4 +1,5 @@
 import React from "react";
+import "./styles/boton.css";
 
 export default function Boton({ texto, esBotonDeClick, handleClick }) {
   return (
