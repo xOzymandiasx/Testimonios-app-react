@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import MainCalculadora from './calculadora-interactiva/components/MainCalculadora/MainCalculadora';
+import AplicacionTareas from './aplicacion-tareas/components/aplicacionTareas/AplicacionTareas';
+// import MainCalculadora from './calculadora-interactiva/components/MainCalculadora/MainCalculadora';
 // import ContadorClicks from './click-counter/components/contadorClicks/contadorClicks';
 import './index.css';
 // import App from './App';
@@ -10,7 +11,8 @@ root.render(
   <React.StrictMode>
     {/* <App /> */}
     {/* <ContadorClicks /> */}
-    <MainCalculadora />
+    {/* <MainCalculadora /> */}
+    <AplicacionTareas />
   </React.StrictMode>
 );
 
